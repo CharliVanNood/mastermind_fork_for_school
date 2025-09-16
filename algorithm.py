@@ -11,14 +11,13 @@ Tijmen Muller (tijmen.muller@hu.nl)
 
 
 def compare_codes(code, guess):
-    """ 
-    Compare a code with a guessed code and provide feedback.
-
-    Returns: a tuple containing:
-        0. The amount of pegs that are correct (both color and position)
-        1. The amount of pegs with correct color, but incorrect position
-    """
-    pass
+    codeTried, guessTried, result = [pin for pin in code], [pin for pin in guess], [0, 0]
+    for i in range(len(code)):
+        if guessTried[i] == codeTried[i]:
+            result[0] += 1
+            codeTried[i], guessTried[i] = -1, -2
+    result[1] = len([True for pin in guessTried if pin in codeTried])
+    return tuple(result)
 
 
 """
@@ -37,6 +36,7 @@ def test_compare():
         (((1, 1, 1, 1), (1, 1, 1, 1)), (4, 0)),
         (((1, 1, 2, 2), (2, 2, 3, 3)), (0, 2)),
         (((1, 1, 2, 2), (3, 1, 1, 3)), (1, 1)),
+        (((3, 3, 4, 4), (4, 5, 3, 6)), (0, 2)),
     ]
 
     for test_params, test_result in test_cases:
