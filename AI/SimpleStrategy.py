@@ -9,10 +9,13 @@ class SimpleStrategy:
 
     def get_possibilities(self, color_list):
         result = 0
-        amount_of_colors_untried = 0
+        amount_of_colors_tried = {}
 
         for color in color_list:
-            pass
+            if color in self.possible_colors:
+                amount_of_colors_tried[str(color)] = True
+
+        result += (len(self.possible_colors) - len(amount_of_colors_tried)) ** 4
 
         return result
 
