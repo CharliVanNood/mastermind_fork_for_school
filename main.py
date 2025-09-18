@@ -1,9 +1,23 @@
 from algorithm import run_tests, compare_codes
-from AI.SimpleStrategy import SimpleStrategy
+from AI.simple_strategy import SimpleStrategy
 
 run_tests()
 
+chosen_code = [1, 2, 3, 4]
 colors = [1, 2, 3, 4, 5, 6]
 
 simple_strategy = SimpleStrategy([1, 2, 3, 4, 5, 6], compare_codes)
-#simple_strategy.run()
+chosen = simple_strategy.run()
+print(chosen)
+similarity = compare_codes(chosen, chosen_code)
+simple_strategy.set_result(similarity)
+chosen = simple_strategy.run()
+print(chosen)
+similarity = compare_codes(chosen, chosen_code)
+simple_strategy.set_result(similarity)
+chosen = simple_strategy.run()
+print(chosen)
+similarity = compare_codes(chosen, chosen_code)
+simple_strategy.set_result(similarity)
+chosen = simple_strategy.run()
+print(chosen)
