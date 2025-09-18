@@ -46,7 +46,7 @@ def test_compare():
         )
 
 
-if __name__ == '__main__':
+def run_tests():
     try:
         print("\x1b[0;32m", end='')
 
