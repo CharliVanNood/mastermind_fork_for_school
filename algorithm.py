@@ -17,7 +17,6 @@ def compare_codes(code, guess):
             result[0] += 1
             codeTried[i], guessTried[i] = -1, -2
     for i in range(len(code)):
-        print(codeTried, guessTried)
         if guessTried[i] in codeTried:
             result[1] += 1
             codeTried[codeTried.index(guessTried[i])], guessTried[i] = -1, -2
