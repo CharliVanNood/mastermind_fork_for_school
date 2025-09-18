@@ -22,10 +22,6 @@ def compare_codes(code, guess):
             codeTried[codeTried.index(guessTried[i])], guessTried[i] = -1, -2
     return tuple(result)
 
-def simple_strategy(colors):
-    pass
-
-
 """
 ----------------------------------------------[ HU TESTRAAMWERK ]----------------------------------------------------
 """
