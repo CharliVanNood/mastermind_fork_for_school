@@ -9,7 +9,7 @@ class Game:
         if chosen_code:
             self.chosen_code = chosen_code
         else:
-            self.chosen_code = [random.choise(colors) for _ in range(4)]
+            self.chosen_code = [random.choice(colors) for _ in range(4)]
         print("chosen code", self.chosen_code)
 
     def run(self, algorithm=False):
