@@ -14,7 +14,7 @@ class Game:
 
     def run(self, algorithm=False):
         if algorithm:
-                print(f"running game with {algorithm.name}")
+            print(f"running game with {algorithm.name}")
 
         start_time = time.time()
 
