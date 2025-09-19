@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 class SimpleStrategy:
     def __init__(self, colors, compare):
         self.colors = colors
@@ -14,16 +16,16 @@ class SimpleStrategy:
         self.compare = compare
 
     def get_possibilities(self, color_list):
-        results = {}
+        results = defaultdict(list)
         for color in self.options:
             result = self.compare(color, color_list)
-            if not str(result) in results: results[str(result)] = [color]
-            else: results[str(result)].append(color)
+            results[str(result)].append(color)
 
         max_steps = 0
         for combination in results:
-            if len(results[combination]) > max_steps:
-                max_steps = len(results[combination])
+            results_length = len(results[combination])
+            if results_length > max_steps:
+                max_steps = results_length
 
         return (max_steps, results)
 
@@ -40,12 +42,10 @@ class SimpleStrategy:
                 self.options_next = result_choises
                 lowest = possibilities
         
-        min_option = 9999
         chosen = False
         for option in possible_options:
-            if option[0] < min_option:
-                min_option = option[0]
+            if option[0] == lowest:
                 chosen = option[1]
+                break
         
-        print(min_option)
         return chosen
