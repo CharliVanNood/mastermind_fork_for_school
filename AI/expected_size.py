@@ -36,7 +36,7 @@ class ExpectedSize:
 
     def run(self):
         best_guess = None
-        best_expected = float("inf")
+        best_expected = 999999
 
         for guess in self.options:
             expected_size, result_choices = self.get_expected_size(guess)
