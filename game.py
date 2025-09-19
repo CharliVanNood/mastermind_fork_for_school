@@ -10,7 +10,7 @@ class Game:
             self.chosen_code = chosen_code
         else:
             self.chosen_code = [random.choise(colors) for _ in range(4)]
-        print(self.chosen_code)
+        print("chosen code", self.chosen_code)
 
     def run(self, algorithm=False):
         if algorithm:
@@ -22,6 +22,7 @@ class Game:
             if algorithm:
                 chosen = algorithm.run()
                 print(chosen)
+                if chosen == self.chosen_code: break
                 similarity = compare_codes(chosen, self.chosen_code)
                 algorithm.set_result(similarity)
 
