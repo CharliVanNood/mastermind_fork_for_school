@@ -21,9 +21,9 @@ class Game:
         for i in range(self.turns):
             if algorithm:
                 chosen = algorithm.run()
-                print(chosen)
-                if chosen == self.chosen_code: break
                 similarity = compare_codes(chosen, self.chosen_code)
+                print(chosen, "->", similarity)
+                if chosen == self.chosen_code: break
                 algorithm.set_result(similarity)
 
         print(f"Finished SimpleStrategy in {time.time() - start_time} seconds")
