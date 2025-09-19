@@ -2,8 +2,8 @@ from collections import defaultdict
 
 class SimpleStrategy:
     def __init__(self, colors, compare):
+        self.name = "SimpleStrategy" # for the game to print what algoritm this is
         self.colors = colors
-        self.guessed_places = [0, 0, 0, 0]
 
         self.options = []
         for colorA in range(len(self.colors)):

@@ -1,26 +1,11 @@
 from algorithm import run_tests, compare_codes
 from AI.simple_strategy import SimpleStrategy
-import time
+from game import Game
 
 run_tests()
 
-chosen_code = [1, 2, 3, 4]
+chosen_code = [1, 4, 3, 2] # Set to False for random
 colors = [1, 2, 3, 4, 5, 6]
 
-start_time = time.time()
-simple_strategy = SimpleStrategy([1, 2, 3, 4, 5, 6], compare_codes)
-chosen = simple_strategy.run()
-print(chosen)
-similarity = compare_codes(chosen, chosen_code)
-simple_strategy.set_result(similarity)
-chosen = simple_strategy.run()
-print(chosen)
-similarity = compare_codes(chosen, chosen_code)
-simple_strategy.set_result(similarity)
-chosen = simple_strategy.run()
-print(chosen)
-similarity = compare_codes(chosen, chosen_code)
-simple_strategy.set_result(similarity)
-chosen = simple_strategy.run()
-print(chosen)
-print(f"Finished SimpleStrategy in {time.time() - start_time} seconds")
+game = Game(8, colors, chosen_code)
+game.run(SimpleStrategy(colors, compare_codes))
